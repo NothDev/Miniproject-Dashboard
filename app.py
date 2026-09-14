@@ -22,7 +22,7 @@ st.markdown(
     """
     | คนที่ | ชื่อ-นามสกุล | หน้าที่หลัก |
     |---|---|---|
-    | 1 | (ใส่ชื่อ) | Temperature Monitoring |
+    | 1 | นางสาว ดุจดาว ลุงพงษ์| Temperature Monitoring |
     | 2 | นายศักดิ์สกุล อนุภาพ | Humidity Monitoring |
     | 3 | (ใส่ชื่อ) | Power Monitoring |
     | 4 | (ใส่ชื่อ) | Safety Alarm |
