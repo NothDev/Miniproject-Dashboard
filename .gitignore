@@ -1,0 +1,22 @@
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.class
+
+# Pytest / Testing artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# VS Code setup & environment variables
+.vscode/
+.env
+
+# Streamlit config
+.streamlit/secrets.toml
