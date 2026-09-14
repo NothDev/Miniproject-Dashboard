@@ -26,6 +26,6 @@ st.markdown(
     | 2 | นายศักดิ์สกุล อนุภาพ | Humidity Monitoring |
     | 3 | นาย อนันตพงษ์ จันทะวัง | Power Monitoring |
     | 4 | (ใส่ชื่อ) | Safety Alarm |
-    | 5 | (ใส่ชื่อ) | System Summary + QA + README |
+    | 5 | นาย ธีระกดิ์ สืบตา  | System Summary + QA + README |
     """
 )
