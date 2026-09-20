@@ -6,6 +6,7 @@ st.title("💧 Humidity Monitoring")
 
 humidity = st.slider("ความชื้น (%)", 0.0, 100.0, 50.0, 0.5)
 status = classify_humidity(humidity)
+st.session_state["humidity_status"] = status
 
 st.metric("ความชื้น", f"{humidity:.1f} %")
 

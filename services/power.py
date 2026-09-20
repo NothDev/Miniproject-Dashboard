@@ -1,12 +1,16 @@
 def calculate_power(voltage: float, current: float) -> float:
     """P = V x I; V > 0, I >= 0; ผิดเงื่อนไข -> ValueError"""
-    # TODO: (คนที่ 3) ตรวจสอบเงื่อนไข voltage และ current
-    # TODO: คำนวณและคืนค่ากำลังไฟฟ้า
-    pass
+    if voltage <= 0:
+        raise ValueError("แรงดันไฟฟ้าต้องมากกว่า 0 V")
+    if current < 0:
+        raise ValueError("กระแสไฟฟ้าต้องไม่น้อยกว่า 0 A")
+    return voltage * current
 
 
 def classify_power(power_watt: float) -> str:
     """คืน NORMAL|WARNING|CRITICAL"""
-    # TODO: (คนที่ 3) เขียนเงื่อนไขจำแนกสถานะตามเกณฑ์
-    # < 500 W = NORMAL, 500-1000 W = WARNING, > 1000 W = CRITICAL
-    pass
+    if power_watt < 500:
+        return "NORMAL"
+    if power_watt <= 1000:
+        return "WARNING"
+    return "CRITICAL"

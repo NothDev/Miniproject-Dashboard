@@ -4,8 +4,26 @@ def generate_alarms(
     power_status: str
 ) -> list[str]:
     """คืน list ข้อความเตือน; ถ้าปกติทั้งหมดคืน []"""
-    # TODO: (คนที่ 4) ตรวจสอบว่าแต่ละสถานะเป็น NORMAL/WARNING/CRITICAL เท่านั้น
-    #       ถ้าไม่ใช่ ให้ raise ValueError
-    # TODO: เรียงลำดับ Temperature -> Humidity -> Power
-    #       และเพิ่มข้อความเตือนตามตารางใน worksheet
-    pass
+    valid_statuses = {"NORMAL", "WARNING", "CRITICAL"}
+    statuses = {
+        "Temperature": temp_status,
+        "Humidity": humid_status,
+        "Power": power_status,
+    }
+
+    invalid_statuses = {
+        name: status
+        for name, status in statuses.items()
+        if status not in valid_statuses
+    }
+    if invalid_statuses:
+        raise ValueError("สถานะต้องเป็น NORMAL, WARNING หรือ CRITICAL เท่านั้น")
+
+    alarms = []
+    for name, status in statuses.items():
+        if status == "WARNING":
+            alarms.append(f"WARNING: {name} status requires attention")
+        elif status == "CRITICAL":
+            alarms.append(f"CRITICAL: {name} status requires immediate action")
+
+    return alarms
