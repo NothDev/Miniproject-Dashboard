@@ -2,7 +2,8 @@ import streamlit as st
 
 from services.alarm import generate_alarms
 
-st.title("Safety Alarm")
+st.title("🚨 Safety Alarm")
+st.caption("ตรวจสอบสถานะความปลอดภัยของทุกโมดูล")
 
 module_statuses = {
 	"Temperature": st.session_state.get("temperature_status"),
@@ -26,12 +27,15 @@ alarms = generate_alarms(
 )
 
 st.subheader("สถานะความปลอดภัย")
-for name, status in module_statuses.items():
-	st.write(f"{name}: {status}")
+status_columns = st.columns(3)
+for column, (name, status) in zip(status_columns, module_statuses.items()):
+	with column:
+		st.metric(name, status)
 
 if not alarms:
-	st.success("ระบบปกติ ไม่พบสัญญาณเตือน")
+	st.success("✅ ระบบปกติ ไม่พบสัญญาณเตือน")
 else:
+	st.subheader("รายการแจ้งเตือน")
 	for alarm in alarms:
 		if alarm.startswith("CRITICAL"):
 			st.error(alarm)
