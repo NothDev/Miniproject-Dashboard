@@ -25,7 +25,7 @@ st.markdown(
     | 1 | นางสาว ดุจดาว ลุงพงษ์| Temperature Monitoring |
     | 2 | นายศักดิ์สกุล อนุภาพ | Humidity Monitoring |
     | 3 | นาย อนันตพงษ์ จันทะวัง | Power Monitoring |
-    | 4 | (ใส่ชื่อ) | Safety Alarm |
+    | 4 | นายวิชิต แสนนวล | Safety Alarm |
     | 5 | นาย ธีระกดิ์ สืบตา  | System Summary + QA + README |
     """
 )
