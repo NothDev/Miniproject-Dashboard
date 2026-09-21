@@ -1,41 +1,23 @@
-import pytest
+# tests/test_humidity.py
 
+import pytest
 from services.humidity import classify_humidity
 
-
-def test_normal():
+def test_humidity_normal():
     assert classify_humidity(50) == "NORMAL"
-
-
-def test_normal_boundary_low():
     assert classify_humidity(40) == "NORMAL"
-
-
-def test_normal_boundary_high():
     assert classify_humidity(60) == "NORMAL"
 
-
-def test_warning_low_side():
+def test_humidity_warning():
     assert classify_humidity(35) == "WARNING"
-
-
-def test_warning_high_side():
     assert classify_humidity(65) == "WARNING"
 
-
-def test_critical_low():
+def test_humidity_critical():
     assert classify_humidity(20) == "CRITICAL"
+    assert classify_humidity(80) == "CRITICAL"
 
-
-def test_critical_high():
-    assert classify_humidity(90) == "CRITICAL"
-
-
-def test_invalid_below_range():
+def test_humidity_invalid():
     with pytest.raises(ValueError):
         classify_humidity(-5)
-
-
-def test_invalid_above_range():
     with pytest.raises(ValueError):
-        classify_humidity(150)
+        classify_humidity(105)
